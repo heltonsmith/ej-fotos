@@ -1,0 +1,40 @@
+<!-- vehiculos/templates/vehiculos/vehiculo_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Vehículos</title>
+</head>
+<body>
+    <h2>Lista de Vehículos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Patente</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Color</th>
+                <th>Precio</th>
+                <th>Fotos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for vehiculo in vehiculos %}
+            <tr>
+                <td>{{ vehiculo.patente }}</td>
+                <td>{{ vehiculo.marca }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.anio }}</td>
+                <td>{{ vehiculo.color }}</td>
+                <td>{{ vehiculo.precio }}</td>
+                <td>
+                    {% for foto in vehiculo.fotos.all %}
+                        <img src="{{ foto.imagen.url }}" alt="Foto de {{ vehiculo.marca }} {{ vehiculo.modelo }}" width="100">
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

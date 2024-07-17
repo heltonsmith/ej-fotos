@@ -1,0 +1,19 @@
+<!-- vehiculos/templates/vehiculos/vehiculo_form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subir Vehículo</title>
+</head>
+<body>
+    <h2>Subir Vehículo</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <label for="id_imagenes">Imágenes:</label>
+            <input type="file" name="imagenes" id="id_imagenes" multiple>
+        </div>
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>
